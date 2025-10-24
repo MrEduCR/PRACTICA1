@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de arboles</title>
+        <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    </head>
+    <body>
+        <h1>Lista de arboles almacenados</h1>
+        <h2>
+            <a th:href="@{/arbol/nuevo}">Agregar Nuevo Árbol</a>
+        <h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Común</th>
+                    <th>Tipo de Flor</th>
+                    <th>Dureza Madera</th>
+                    <th>Altura Promedio (m)</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--itera sobre los árboles DESDE EL CONTROLLER ojo ahi-->
+                <tr th:each="arbol : ${arboles}">
+                    <td th:text="${arbol.id}"></td>
+                    <td th:text="${arbol.nombreComun}"></td>
+                    <td th:text="${arbol.tipoFlor}"></td>
+                    <td th:text="${arbol.durezaMadera}"></td>
+                    <td th:text="${arbol.alturaPromedio}"></td>
+                    <td>
+                        <img th:src="${arbol.rutaImagen}" alt="Imagen del árbol" width="100">
+                    </td>
+                    <td>
+                        <a th:href="@{'/arbol/editar/' + ${arbol.id}}">Editar</a> |
+                        <a th:href="@{'/arbol/eliminar/' + ${arbol.id}}"
+                           onclick="return confirm('¿Seguro que quieres eliminar este árbol?');">Eliminar</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </body>
+</html>
