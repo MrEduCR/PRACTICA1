@@ -6,6 +6,7 @@ CREATE TABLE estado_arbol (
     nombre_estado VARCHAR(50) NOT NULL
 );
 
+
 INSERT INTO estado_arbol (nombre_estado) VALUES
 ('Por plantar'),
 ('Recién plantado'),
