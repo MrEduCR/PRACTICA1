@@ -1,12 +1,9 @@
 CREATE DATABASE practica;
 USE practica;
-
 CREATE TABLE estado_arbol (
     id_estado INT AUTO_INCREMENT PRIMARY KEY,
     nombre_estado VARCHAR(50) NOT NULL
 );
-
-
 INSERT INTO estado_arbol (nombre_estado) VALUES
 ('Por plantar'),
 ('Recién plantado'),
@@ -14,7 +11,6 @@ INSERT INTO estado_arbol (nombre_estado) VALUES
 ('Maduro'),
 ('Cortado'),
 ('Seco');
-
 CREATE TABLE arbol (
     id INT AUTO_INCREMENT PRIMARY KEY,        
     nombre_comun VARCHAR(100) NOT NULL,        
@@ -30,8 +26,6 @@ CREATE TABLE arbol (
         ON UPDATE CASCADE
         ON DELETE SET NULL
 );
-
-
 INSERT INTO arbol (nombre_comun, tipo_flor, dureza_madera, altura_promedio, ruta_imagen, id_estado)
 VALUES
 ('Roble', 'No tiene', 'Dura', 25.5, 'https://media.istockphoto.com/id/183807813/es/foto/oak-tree.jpg?s=2048x2048&w=is&k=20&c=_AWeiGdtsHvcIEs2l_IvzLYyC04VRBVVvhxcvk23ER0=', 1),
@@ -39,14 +33,10 @@ VALUES
 ('Pino', 'No tiene', 'Blanda', 30.2, 'https://thumbs.dreamstime.com/z/%C3%A1rbol-de-pino-10688089.jpg?ct=jpeg', 3),
 ('Jacaranda', 'Morada', 'Media', 18.7, 'https://media.istockphoto.com/id/172936359/es/foto/p%C3%BArpura-cerezos-en-flor-en-jacarand%C3%A1-sobre-fondo-blanco.jpg?s=2048x2048&w=is&k=20&c=eeaIN6Fc3K3JTD0Up7r3nehYuKaOKmRcWR251TqLJqg=', 4),
 ('Laurel', 'Blanca', 'Media', 12.4, 'https://www.arbolitos.es/image.axd?w=520&src=/Docs/Arbolitos/laurel_arbol.jpg', 5);
-
-
-
-TRUNCATE TABLE arbol
-
 CREATE USER 'usuario_practica'@'%' IDENTIFIED BY 'la_Clave';
 GRANT ALL PRIVILEGES ON practica.* TO 'usuario_practica'@'%';
 FLUSH PRIVILEGES;
+
 
 
 select * from arbol
